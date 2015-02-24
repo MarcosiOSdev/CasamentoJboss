@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+
+
+<ui:composition>
+
+	<h:form id="menu">
+		
+	
+		<b:navBar 
+			brand="Casamento" 
+			inverse="true"			 
+			fixed="top"
+			brandHref="/casamento/protected/user/system.jsf">
+			<b:navbarLinks>
+				<b:navLink value="Localidade" href="/protected/user/localidade.jsf"></b:navLink>
+				
+				<b:dropMenu value="Convidados">
+					<b:navLink value="Registrar" href="/protected/user/convidados.jsf" ></b:navLink>					
+					<b:navLink></b:navLink>
+					<b:navLink value="Buscar do Casal"  href="/protected/user/lstConvidados.jsf"></b:navLink>
+					<b:navLink value="Buscar apenas os meus" href="/protected/user/lstMeusConvidados.jsf"></b:navLink>
+				</b:dropMenu>
+				
+				<b:navLink value="Sair" href="/protected/user/sair.jsf"></b:navLink>
+				
+				
+				<!--  <b:button value="Sair" onclick="#{usuarioSessionMB.logOut}" /> -->
+			</b:navbarLinks>
+		</b:navBar>
+
+
+	</h:form>
+</ui:composition>
+</html>
+

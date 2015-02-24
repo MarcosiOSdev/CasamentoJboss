@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/templates/interno.xhtml">
+	
+			<ui:define name="title">Convidados</ui:define>
+			
+			<ui:define name="body">
+				
+				
+				
+				<h:form id="formInpt">
+				<p:messages id="msgs"/>
+				<p:panelGrid columns="2">
+				
+					<f:facet name="header"> Cadastrar Convidados</f:facet>
+				
+					<h:outputLabel value="Nome do Convidado" />
+					<h:inputText value="#{convidadosMB.convidados.nome}" onkeyup="this.value = this.value.toUpperCase();"/>
+					
+					<h:outputLabel value="Padrinho" for="padrinho"/>
+					<p:selectOneRadio id="padrinho" value="#{convidadosMB.convidados.padrinho}">
+						<f:selectItem itemLabel="Sim" itemValue="s"/>
+						<f:selectItem itemLabel="Não" itemValue="n"/>
+					</p:selectOneRadio>
+					
+					<h:outputLabel value="Localidade" />
+					<p:selectOneMenu value="#{convidadosMB.localidadeSelecionada}">
+						<f:selectItem itemLabel="Escolha uma opcao" itemValue=""/>
+						<f:selectItems value="#{convidadosMB.localidades}" 
+									   var="local" 
+									   itemLabel="#{local.nomeLocalidade}" 
+									   itemValue="#{local.idLocalidade}"  />
+					</p:selectOneMenu>
+					
+					
+					
+					<p:commandButton value="Salvar" action="#{convidadosMB.salvar}" update="msgs" />
+				</p:panelGrid>
+				</h:form>
+				
+				
+			</ui:define>
+			
+	</ui:composition>
+</html>

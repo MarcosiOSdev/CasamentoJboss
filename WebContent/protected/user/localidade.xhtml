@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/templates/interno.xhtml">
+	
+			<ui:define name="title">Localidade</ui:define>
+			
+			<ui:define name="body">
+				<h:form id="formInpt">
+				<p:messages />
+				<p:panelGrid columns="2">
+					<h:outputLabel value="Localidade" />
+					<h:inputText value="#{localidadeMB.localidade.nomeLocalidade}" onkeyup="this.value = this.value.toUpperCase();"/>
+					<p:commandButton value="Salvar" action="#{localidadeMB.cadastrar}" update=":formDt, formInpt" />
+				</p:panelGrid>
+				</h:form>
+				
+				<h:form id="formDt">
+				<p:dataTable value="#{localidadeMB.localidades}" var="local" id="dt" emptyMessage="Não tem localidade cadastrada">
+				
+					<p:column>
+						#{local.nomeLocalidade}
+					</p:column>
+					
+					<p:column width="0px">
+						<p:commandButton value="Excluir" actionListener="#{localidadeMB.excluir(local)}" update=":formInpt, @form">	
+							<p:confirm header="Confirmação" message="Deseja deletar a localidade ?" icon="ui-icon-alert" /> 									 
+						</p:commandButton>
+						
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+        				<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        				<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    					</p:confirmDialog>
+						
+					</p:column>	
+					
+				</p:dataTable>
+				</h:form>
+				
+			</ui:define>
+			
+	</ui:composition>
+</html>

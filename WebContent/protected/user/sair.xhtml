@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<ui:composition template="/templates/interno.xhtml">
+	
+			<ui:define name="title">Convidados</ui:define>
+			
+			<ui:define name="body">
+				
+				<b:panel look="info" title="Dejesa Realmente Sair ?">
+					<h:form id="formInpt">
+						<p:commandButton value="Sim" action="#{usuarioSessionMB.logOut()}" update="@form" />
+					</h:form>
+				</b:panel>
+				
+			</ui:define>
+			
+	</ui:composition>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<title>
+		<ui:insert name="title">QuickStart</ui:insert>
+	</title>
+	<h:outputStylesheet library="css" name="style.css"/> 
+	
+	<style type="text/css"><!--
+	#logotipo {
+		text-align: center;
+	} -->
+    </style>
+    
+</h:head>
+<h:body>
+	<f:view contentType="text/html; charset=UTF-8" locale="pt_BR">
+
+	<div id="container">
+		<div id="logotipo">
+			<!--  <h:graphicImage library="imagens" name="logotipo_g.png"/> -->
+			CASAMENTO
+		</div>
+		<div id="barMenu">
+	    	<ui:insert name="barMenu">
+	    		<ui:include src="/protected/user/menu.xhtml"/>
+	   		</ui:insert>   
+		</div>
+		<div id="body">
+			<b:panel>
+				<ui:insert name="body"/>
+			</b:panel>    
+		</div>
+		<div id="footer">
+	    	<ui:insert name="footer">
+	    		Marcos =D
+	    	</ui:insert> 
+		</div>
+		
+		<ui:insert name="loading" >
+			<p:ajaxStatus onstart="PF('statusDialog').show();"
+				          onsuccess="PF('statusDialog').hide();" />
+
+			<p:dialog modal="true" 
+			          widgetVar="statusDialog" 
+			          header="Status"
+				      draggable="false" 
+				      closable="false">
+				      
+				<h:graphicImage library="gifs" 
+				                name="ajaxloadingbar.gif"
+					            style="border:0" />
+			</p:dialog>
+		</ui:insert>
+		
+	</div>
+	</f:view>
+</h:body>
+</html>

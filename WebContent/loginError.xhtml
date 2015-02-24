@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+
+	<h:form id="login"
+		onsubmit="document.getElementById('login').action='j_security_check';"
+		prependId="false">
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<center>
+					<p:inputText name="j_username" placeholder="Usuario"
+						style="margin-top:10px;margin-left:10px;" size="15" id="user"
+						value="#{usuarioBean.usuario.usuario}"
+						></p:inputText>
+				</center>
+			</li>
+			<li>
+				<center>
+					<p:inputText id="j_password" name="j_password" placeholder="Senha"
+						style="margin-top:10px;margin-left:10px;" size="15"
+						type="password" value="#{usuarioBean.usuario.senha}"
+						></p:inputText>
+				</center>
+			</li>
+			<li>
+				<center>
+					<p:commandButton style="margin-top:10px;margin-left:10px;"
+						value="Entrar"
+						ajax="false"></p:commandButton>
+				</center>
+			</li>
+		</ul>
+	</h:form>
+
+</h:body>
+</html>

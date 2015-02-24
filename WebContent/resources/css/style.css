@@ -1,0 +1,68 @@
+body, td, th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+th {
+	min-height: 25px;
+	padding: 3px;
+	font-size: 12px;
+}
+
+img {
+	border:0px;
+}
+
+#container {
+	width: 770px;
+	height: 100%;
+	margin: 0 auto
+}
+	
+#title {
+	float: left;
+	font-size: 25pt;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+#barMenu {
+	min-height: 25px;
+	padding: 3px;
+	clear:both;
+}
+
+#body {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 300px;
+}
+
+
+
+#footer {
+	height: 100px;
+	margin-top: 5px;
+	padding: 10px;
+	text-align: center;
+}
+<!-- classes -->
+.info {
+	font-weight: bold;
+	color: green;
+}
+
+.warn {
+	font-weight: bold;
+	color: #FFCC00;
+}
+
+.fatal, .error {
+	font-weight: bold;
+	color: red;
+}
+/*
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+color: blue !important; 
+background-color: transparent;
+} */

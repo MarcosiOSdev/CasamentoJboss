@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<ui:composition template="/templates/interno.xhtml">
+	
+			<ui:define name="title">Busca</ui:define>
+			
+			<ui:define name="body">
+				<h:form>
+					 <h:panelGrid columns="2" cellpadding="5">
+        					<p:outputLabel value="Buscar:" for="acSimple" />
+        					<p:autoComplete id="acSimple" 
+        								    completeMethod="#{buscaMB.completeText}" 
+        								    queryDelay="1000"/>
+        			</h:panelGrid>
+				</h:form>
+			</ui:define>
+			
+	</ui:composition>
+</html>

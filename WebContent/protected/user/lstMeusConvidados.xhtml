@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<ui:composition template="/templates/interno.xhtml">
+	
+			<ui:define name="title">Convidados</ui:define>
+			
+			<ui:define name="body">
+			
+				<h:form id="formInpt">
+				<p:dataTable value="#{convidadosMB.lstMeusConvidados}" 
+							 var="convidado"
+							 paginator="true"
+							 rows="5" 
+							 emptyMessage="Não tem convidados cadastrada"
+							 rowsPerPageTemplate="5,10,15">
+							 
+							 
+							 <f:facet name="header"> 
+							   Total dos seus convidados:	#{convidadosMB.qtdMeusConvidados}
+							 </f:facet>
+							 
+					<p:column filterBy="#{convidado.nome}" headerText="Nome">
+						#{convidado.nome}
+					</p:column>
+					<p:column  headerText="Localidade">
+						#{convidado.localidade.nomeLocalidade}
+					</p:column>
+					<p:column sortBy="#{convidado.padrinho}" headerText="Padrinho">
+						 #{convidado.padrinho}
+					</p:column>		
+					
+					<p:column sortBy="#{convidado.padrinho}" headerText="Convidado do :">
+						 #{convidado.usuario.login}
+					</p:column>
+					
+					<p:column>
+						<p:commandButton value="Excluir" actionListener="#{convidadosMB.deletar(convidado)}" update=":formInpt">	
+							<p:confirm header="Confirmação" message="Deseja deletar o comembro ?" icon="ui-icon-alert" /> 									 
+						</p:commandButton>
+						
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+        				<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        				<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    					</p:confirmDialog>
+					</p:column>
+					
+				</p:dataTable>
+				</h:form>
+				
+				
+			</ui:define>
+			
+	</ui:composition>
+</html>
